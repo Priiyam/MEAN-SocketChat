@@ -268,6 +268,16 @@ body {
 
           socket.on('output', (data) => {
             console.log(data);
+            if (data.length){
+              for(var i=0; i< data.length; i++){
+                var message = document.createElement("div"); // creating div element
+                message.setAttribute("class", "chat-message"); // setting class
+                message.textContent = data[i].name + ": " + data[i].message; // creating text content
+                messages.appendChild(message); // appending each message to collection messages
+                messages.insertBefore(message, messages.firstChild); // inserting each messsage at the top
+
+              }
+            }
           });
         }
 
