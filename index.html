@@ -270,6 +270,7 @@ body {
             console.log(data);
             if (data.length){
               for(var i=0; i< data.length; i++){
+                // Build the message output
                 var message = document.createElement("div"); // creating div element
                 message.setAttribute("class", "chat-message"); // setting class
                 message.textContent = data[i].name + ": " + data[i].message; // creating text content
@@ -280,6 +281,19 @@ body {
             }
           });
         }
+
+        // Getting status from server
+        socket.on('status', (data) => {
+          // get message status
+          setStatus((typeof data === "object")? data.message: data);
+
+          // If status is clear
+          if (data.clear){
+            textarea.value = '';
+          }
+        });
+
+       
 
     })();
 </script>
