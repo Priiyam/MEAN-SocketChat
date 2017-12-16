@@ -1,0 +1,19 @@
+{
+  "name": "mean-socketchat",
+  "version": "1.0.0",
+  "description": "Chat app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Priiyam/MEAN-SocketChat.git"
+  },
+  "author": "Priyam Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Priiyam/MEAN-SocketChat/issues"
+  },
+  "homepage": "https://github.com/Priiyam/MEAN-SocketChat#readme"
+}
