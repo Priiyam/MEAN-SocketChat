@@ -33,15 +33,19 @@ mongo.connect('mongodb://127.0.0.1/mean-socketchat', (err, db) => {
             let message = data.message;
 
             // Check for name and message
-            if (name = '' || message = ''){
+            if (name == '' || message == ''){
                 sendStatus('Please enter a name and a message');
             }
-            else{
+            else {
                 // Insert Message
                 chat.insert({name: name, message: message}, () =>  {
                     client.emit('output', [data]);
 
-                    
+                    // Send status object
+                    sendStatus({
+                        message: 'Message sent',
+                        clear: true
+                    });
                 });
             }
         });
