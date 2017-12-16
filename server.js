@@ -26,6 +26,25 @@ mongo.connect('mongodb://127.0.0.1/mean-socketchat', (err, db) => {
             // Emit the messages
             res.emit('output', res);
         });
+
+        // Handle input events
+        socket.on('input', (data) => {
+            let name = data.name;
+            let message = data.message;
+
+            // Check for name and message
+            if (name = '' || message = ''){
+                sendStatus('Please enter a name and a message');
+            }
+            else{
+                // Insert Message
+                chat.insert({name: name, message: message}, () =>  {
+                    client.emit('output', [data]);
+
+                    
+                });
+            }
+        });
     });
 
     console.log('MongoDB connected');
