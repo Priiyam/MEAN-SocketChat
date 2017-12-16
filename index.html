@@ -239,11 +239,28 @@ body {
         }
 
         // Get Elements
-         var status = element('status');
+        var status = element('status');
         var messages = element('messages');
         var textarea = element('textarea');
         var username = element('username');
         var clearBtn = element('clear');
+
+        // Set default status
+        var statusDefault = status.textContent; // nothing at first
+
+        var setStatus = (s) => {
+            // Set Status
+            statusDefault = s;
+
+            if (s !== statusDefault){
+                var delay = setTimeout(() => {
+                    sendStatus(statusDefault);
+                }, 4000);
+            }
+        }
+
+        
+
     })();
 </script>
 
