@@ -293,7 +293,18 @@ body {
           }
         });
 
-       
+        // Handling the input
+        textarea.addEventListener("keydown", (event) => {
+          if (event.which === 13 && event.shift == false){
+            // Emit it to the sever
+            socket.emit('input', {
+              name: username.value,
+              message: textarea.value
+            });
+
+            event.preventDefault();
+          }
+        });
 
     })();
 </script>
