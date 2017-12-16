@@ -49,7 +49,17 @@ mongo.connect('mongodb://127.0.0.1/mean-socketchat', (err, db) => {
                 });
             }
         });
+
+        // Handle clear
+        socket.on('clear', (data) => {
+            // Remove all chats from collection
+            chat.remove({}, () => {
+                socket.emit('cleared');
+            });
+        });
+
     });
+
 
     console.log('MongoDB connected');
 });
