@@ -16,6 +16,16 @@ mongo.connect('mongodb://127.0.0.1/mean-socketchat', (err, db) => {
         sendStatus = (s) => {
             socket.emit('status', s);
         }
+
+        // Get chats from mongo collection
+        chat.find().limit(100).sort({id:1}).toArray( (err, res) => {
+            if (err){
+                throw err;
+            }
+
+            // Emit the messages
+            res.emit('output', res);
+        });
     });
 
     console.log('MongoDB connected');
