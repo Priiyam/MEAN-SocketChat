@@ -265,6 +265,10 @@ body {
         // Check for connection
         if (socket !==undefined){
           console.log('Connected socket!');
+
+          socket.on('output', (data) => {
+            console.log(data);
+          });
         }
 
     })();
