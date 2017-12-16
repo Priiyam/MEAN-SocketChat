@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Priiyam/MEAN-SocketChat/issues"
   },
-  "homepage": "https://github.com/Priiyam/MEAN-SocketChat#readme"
+  "homepage": "https://github.com/Priiyam/MEAN-SocketChat#readme",
+  "dependencies": {
+    "mongodb": "^3.0.0-rc0",
+    "socket.io": "^2.0.4"
+  }
 }
