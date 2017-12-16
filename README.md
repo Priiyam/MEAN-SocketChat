@@ -19,4 +19,5 @@ npm start
 Open index.html
 
 ## Preview
-![Alt text](/MEAN-SocketChat.png?raw=true "Optional Title")
+![Alt text](/MEAN-SocketChat.png?raw=true "MEAN-SocketChat")
+![Alt text](/sample/MEAN-SocketChat2.png?raw=true "MEAN-SocketChat")
