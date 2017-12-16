@@ -7,10 +7,13 @@ mongo.connect('mongodb://127.0.0.1/mean-socketchat', (err, db) => {
         throw err;
     }
 
+    console.log('MongoDB connected');
+
     // Connect to socket.io
     client.on('connection', (socket) => {
          //creating a collection
-        let chat = db.collection('chats');
+        const myDB = db.db('mean-socketchat') // for higher version of mongo!
+        let chat = myDB.collection('chats');
 
         // creating function to send status
         sendStatus = (s) => {
@@ -18,13 +21,13 @@ mongo.connect('mongodb://127.0.0.1/mean-socketchat', (err, db) => {
         }
 
         // Get chats from mongo collection
-        chat.find().limit(100).sort({id:1}).toArray( (err, res) => {
+        chat.find().limit(100).sort({_id:1}).toArray( (err, res) => {
             if (err){
                 throw err;
             }
 
             // Emit the messages
-            res.emit('output', res);
+            socket.emit('output', res);
         });
 
         // Handle input events
@@ -60,6 +63,4 @@ mongo.connect('mongodb://127.0.0.1/mean-socketchat', (err, db) => {
 
     });
 
-
-    console.log('MongoDB connected');
 });
