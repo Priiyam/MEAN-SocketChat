@@ -8,7 +8,7 @@ mongo.connect('mongodb://127.0.0.1/mean-socketchat', (err, db) => {
     }
 
     // Connect to socket.io
-    client.on('connection', () => {
+    client.on('connection', (socket) => {
          //creating a collection
         let chat = db.collection('chats');
 
