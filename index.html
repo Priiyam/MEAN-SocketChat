@@ -310,7 +310,10 @@ body {
             socket.emit('clear');
           });
 
-          
+          // Clear the message
+          socket.on('cleared', () => {
+            messages.textContent = '';
+          });
 
         }
 
