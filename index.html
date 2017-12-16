@@ -305,6 +305,13 @@ body {
             }
           });
 
+          // Handling Chat clear
+          clearBtn.addEventListener('click', () => {
+            socket.emit('clear');
+          });
+
+          
+
         }
 
     })();
